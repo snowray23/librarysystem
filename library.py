@@ -7,33 +7,9 @@ class Library:
         self._books = []
         self._authors = []
         self._users = []
-
+#books
     def add_book(self, book):
         self._books.append(book)
-
-    def add_author(self, author):
-        self._authors.append(author)
-
-    def add_user(self, user):
-        self._users.append(user)
-
-    def search_book(self, title):
-        for book in self._books:
-            if book.get_title() == title:
-                return book
-        return None
-
-    def search_author(self, name):
-        for author in self._authors:
-            if author.get_name() == name:
-                return author
-        return None
-
-    def search_user(self, library_id):
-        for user in self._users:
-            if user.get_library_id() == library_id:
-                return user
-        return None
 
     def borrow_book(self, user, book):
         if book.is_available():
@@ -51,9 +27,27 @@ class Library:
 
     def get_books(self):
         return self._books
+#user
+    def add_user(self, user):
+        self._users.append(user)
 
-    def get_authors(self):
-        return self._authors
-
+    def search_user(self, library_id):
+        for user in self._users:
+            if user.get_library_id() == library_id:
+                return user
+        return None
+    
     def get_users(self):
         return self._users
+    
+#author
+    def add_author(self, author):
+        self._authors.append(author)
+
+    def search_author(self, name):
+        for author in self._authors:
+            if author.get_name() == name:
+                return author
+        return None
+    def get_authors(self):
+        return self._authors
